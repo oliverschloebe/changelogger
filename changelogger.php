@@ -14,7 +14,7 @@ Description: <strong>WordPress 2.7+ only.</strong> For many many people a change
 Author: Oliver Schl&ouml;be
 Author URI: http://www.schloebe.de/
 
-Copyright 2010-2013 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2010-2015 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
