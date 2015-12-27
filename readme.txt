@@ -32,6 +32,7 @@ For many many people a changelog is a very important thing; it is all about just
 * Belorussian (be_BY) (Thanks for contributing belorussian language goes to FatCow)
 * Bulgarian (bg_BG) (Thanks for contributing bulgarian language goes to Dimitar Kolevski)
 * Ukrainian (uk_UA) (Thanks for contributing ukrainian language goes to Michael Yunat)
+* Simplified Chinese (zh_CN) (Thanks for contributing simplified chinese language goes to 斌果)
 
 **Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](http://www.schloebe.de/portfolio/)**
 
