@@ -1,9 +1,9 @@
 === Changelogger ===
 Contributors: Alphawolf
-Donate link: http://www.schloebe.de/donate/
+Donate link: https://www.schloebe.de/donate/
 Tags: changelogger, changelog, version, control
 Requires at least: 2.7
-Tested up to: 4.4.9999
+Tested up to: 4.8.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -19,8 +19,6 @@ For many many people a changelog is a very important thing; it is all about just
 **Note:** The inline changelog on a plugin update shows up if the plugin author added a changelog section based on the new [readme.txt example file](http://wordpress.org/extend/plugins/about/readme.txt "readme.txt example file") to their plugin's readme file.
 
 [Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
-
-[Become A Patron, Support The Developer.](http://www.patreon.com/oliver_schloebe "Become A Patron, Support The Developer.")
 
 **Included languages:**
 
@@ -54,6 +52,14 @@ Please visit [the official website](http://www.schloebe.de/wordpress/changelogge
 4. Installation finished.
 
 == Changelog ==
+
+= 1.3.1 =
+* WordPress 4.8 compatibility
+* Changes in UI
+
+= 1.3.0 =
+* WordPress 4.7 compatibility
+* PHP 7 compatibility
 
 = 1.2.17 =
 * Added ukrainian localization (Thanks to Michael Yunat)

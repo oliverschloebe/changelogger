@@ -8,13 +8,13 @@
  
 /*
 Plugin Name: Changelogger
-Version: 1.2.17
-Plugin URI: http://www.schloebe.de/wordpress/changelogger-plugin/
+Version: 1.3.1
+Plugin URI: https://www.schloebe.de/wordpress/changelogger-plugin/
 Description: <strong>WordPress 2.7+ only.</strong> For many many people a changelog is a very important thing; it is all about justifying to your users why they should upgrade to the latest version of a plugin. Changelogger shows the latest changelog right on the plugin listing page, whenever there's a plugin ready to be updated.
 Author: Oliver Schl&ouml;be
-Author URI: http://www.schloebe.de/
+Author URI: https://www.schloebe.de/
 
-Copyright 2010-2015 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2010-2016 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("CLOSVERSION", "1.2.17");
+define("CLOSVERSION", "1.3.1");
 
 /**
  * Define the global var CLOSISWP27, returning bool if at least WP 2.7 is running
@@ -191,12 +191,9 @@ class Changelogger {
 					$changelog = $api->sections['changelog'];
 					$section_exists = preg_match_all('/(<h4>|<p><strong>|<strong>|[\n|\r]{0,})(.*)([\n|\r]{0,}|<\/strong>|<\/strong><\/p>|<\/h4>)[\n|\r]{0,}<ul>(.*)<\/ul>[\w|\W]{0,}/isU', $changelog, $changelog_result);
 					if( $section_exists ) {
-						#echo '<pre>';
-						#print_r($api);
-						#echo '</pre>';
 						$search = array("<strong>Version ", "<h4>Version ", "Version ", "<strong>v", "<h4>v");
 						$replace = array("<strong>", "<h4>", "", "<strong>", "<h4>");
-						$output .= '<tr' . $class_tr . '><td class="plugin-update clos-plugin-update" colspan="' . $columns . '"><div class="update-message clos-message" id="clos-message-' . $r->slug . '">';
+						$output .= '<tr' . $class_tr . '><td class="plugin-update clos-plugin-update colspanchange" colspan="' . $columns . '"><div class="update-message clos-message notice inline notice-info notice-alt" id="clos-message-' . $r->slug . '">';
 						$changelog = trim( str_replace($search, $replace, $changelog_result[0][0]) );
 						$l_arrw = '&laquo; ';
 						$r_arrw = ' <a href="#" onclick="clos_ajax_load_changelog( \'' . $r->slug . '\', \'1\' );return false;" title="' . $this->_esc_attr__('Previous version') . '" class="clos-arrw clos-arrw-r">&raquo;</a>';
@@ -204,8 +201,9 @@ class Changelogger {
 						$changelog = preg_replace( "#<p><strong>(.*)<\/strong><\/p>#i", $l_arrw . '\0' . $r_arrw, $changelog );
 						#$changelog = preg_replace( "#[\n|\r]{0,}(.*)[\n|\r]{2,}#iU", $l_arrw . '<strong>\1</strong>' . $r_arrw, $changelog );
 						$output .= sprintf(__('What has changed in version %1$s', 'changelogger'), $changelog);
+						$output .= '<p>';
 						if ( isset($api->tested) && version_compare($api->tested, $cur_wp_version, '>=') ) {
-							$output .= ' ' . sprintf(__('Compatibility with WordPress %1$s: 100%% (according to its author).', 'changelogger'), $cur_wp_version);
+							$output .= '' . sprintf(__('Compatibility with WordPress %1$s: 100%% (according to its author).', 'changelogger'), $cur_wp_version);
 						} elseif ( isset($api->compatibility[$cur_wp_version][$r->new_version]) ) {
 							$compat = $api->compatibility[$cur_wp_version][$r->new_version];
 							$output .= ' ' . sprintf(__('Compatibility with WordPress %1$s: %2$d%% (%3$d "works" votes out of %4$d total).', 'changelogger'), $cur_wp_version, $compat[0], $compat[2], $compat[1]);
@@ -213,20 +211,21 @@ class Changelogger {
 							$output .= ' ' . sprintf(__('Compatibility with WordPress %1$s: Unknown.', 'changelogger'), $cur_wp_version);
 						}
 						$output .= ' ' . sprintf(__('If you are interested, check out the plugin\'s <a href="http://plugins.trac.wordpress.org/log/%s/trunk" target="_blank">Revision Log</a>!', 'changelogger'), $r->slug) . '</div></td></tr>';
+						$output .= '</p>';
 					} else {
 						#print_r($api);
-						$output .= '<tr' . $class_tr . '><td class="plugin-update clos-plugin-update" colspan="' . $columns . '"><div class="update-message clos-message">';
+						$output .= '<tr' . $class_tr . '><td class="plugin-update clos-plugin-update" colspan="' . $columns . '"><div class="update-message clos-message notice inline notice-warning notice-alt">';
 						$output .= '<span style="color:#A36300;">' . sprintf(__('There is a changelog section for this plugin, but it is not readable, propably because it <strong>does not match the <a href="http://wordpress.org/extend/plugins/about/readme.txt" target="_blank">readme.txt standards</a></strong>!', 'changelogger')) . ' ' . sprintf(__('If you are interested, check out the plugin\'s <a href="http://plugins.trac.wordpress.org/log/%s/trunk" target="_blank">Revision Log</a>!', 'changelogger'), $r->slug) . '</span>';
 						$output .= '</div></td></tr>';
 					}
 				} else {
 					#print_r($api);
-					$output .= '<tr' . $class_tr . '><td class="plugin-update clos-plugin-update" colspan="' . $columns . '"><div class="update-message clos-message">';
+					$output .= '<tr' . $class_tr . '><td class="plugin-update colspanchange clos-plugin-update" colspan="' . $columns . '"><div class="update-message clos-message notice inline notice-warning notice-alt">';
 					$output .= '<span style="color:#A36300;">' . sprintf(__('There is <strong>no changelog section provided for this plugin</strong>. Please encourage the plugin author to add a changelog section to the plugin\'s readme! Contact %s! [<a href="http://westi.wordpress.com/2009/06/20/changelogs-changelogs-changelogs/" target="_blank">More</a>]', 'changelogger'), $api->author) . ' ' . sprintf(__('If you are interested, check out the plugin\'s <a href="http://plugins.trac.wordpress.org/log/%s/trunk" target="_blank">Revision Log</a>!', 'changelogger'), $r->slug) . '</span>';
 					$output .= '</div></td></tr>';
 				}
 			} else {
-				$output .= '<tr class="plugin-update-tr"><td colspan="' . $columns . '"><div class="update-message clos-message">';
+				$output .= '<tr class="plugin-update-tr"><td colspan="' . $columns . '" class="plugin-update colspanchange"><div class="update-message clos-message">';
 				$output .= sprintf(__('<strong>ERROR</strong>: %s', 'changelogger'), $api->get_error_message());
 				$output .= '</div></td></tr>';
 			}
