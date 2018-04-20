@@ -53,6 +53,10 @@ Please visit [the official website](http://www.schloebe.de/wordpress/changelogge
 
 == Changelog ==
 
+= 1.3.2 =
+* WordPress 4.9 compatibility
+* Fixed a small PHP Notice
+
 = 1.3.1 =
 * WordPress 4.8 compatibility
 * Changes in UI
