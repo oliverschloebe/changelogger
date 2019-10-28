@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: changelogger, changelog, version, control
 Requires at least: 2.7
-Tested up to: 5.2.9999
+Tested up to: 5.3.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ For many many people a changelog is a very important thing; it is all about just
 
 **Note:** The inline changelog on a plugin update shows up if the plugin author added a changelog section based on the new [readme.txt example file](http://wordpress.org/extend/plugins/about/readme.txt "readme.txt example file") to their plugin's readme file.
 
-[Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
 
 **Included languages:**
 
@@ -52,6 +52,9 @@ Please visit [the official website](http://www.schloebe.de/wordpress/changelogge
 4. Installation finished.
 
 == Changelog ==
+
+= 1.3.3 =
+* WordPress 5.3 compatibility
 
 = 1.3.2 =
 * WordPress 4.9 compatibility
