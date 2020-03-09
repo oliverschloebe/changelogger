@@ -3,10 +3,10 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: changelogger, changelog, version, control
 Requires at least: 2.7
-Tested up to: 5.3.9999
+Tested up to: 5.4.9999
 Stable tag: trunk
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Changelogger shows the latest changelog right on the plugin listing page, whenever there's a plugin ready to be updated.
 
@@ -16,9 +16,9 @@ The 20th of June 2009 was the day when changelogs found their way into readme.tx
 
 For many many people a changelog is a very important thing; it is all about justifying to your users why they should upgrade to the latest version of a plugin. **Changelogger shows the latest changelog right on the plugin listing page**, whenever there's a plugin ready to be updated. 
 
-**Note:** The inline changelog on a plugin update shows up if the plugin author added a changelog section based on the new [readme.txt example file](http://wordpress.org/extend/plugins/about/readme.txt "readme.txt example file") to their plugin's readme file.
+**Note:** The inline changelog on a plugin update shows up if the plugin author added a changelog section based on the new [readme.txt example file](https://wordpress.org/extend/plugins/about/readme.txt "readme.txt example file") to their plugin's readme file.
 
-[Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](https://twitter.com/wpseek "Developer on Twitter")
 
 **Included languages:**
 
@@ -32,7 +32,7 @@ For many many people a changelog is a very important thing; it is all about just
 * Ukrainian (uk_UA) (Thanks for contributing ukrainian language goes to Michael Yunat)
 * Simplified Chinese (zh_CN) (Thanks for contributing simplified chinese language goes to 斌果)
 
-**Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](http://www.schloebe.de/portfolio/)**
+**Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
 
 == Frequently Asked Questions ==
 
@@ -42,7 +42,7 @@ If you have suggestions please let me know by dropping me a line via e-mail or t
 
 = Where can I get more information? =
 
-Please visit [the official website](http://www.schloebe.de/wordpress/changelogger-plugin/#english "Changelogger") for the latest information on this plugin.
+Please visit [the official website](https://www.schloebe.de/wordpress/changelogger-plugin/#english "Changelogger") for the latest information on this plugin.
 
 == Installation ==
 
@@ -79,7 +79,7 @@ Please visit [the official website](http://www.schloebe.de/wordpress/changelogge
 * Maintenance Release
 
 = 1.2.12 =
-* Added bulgarian localization (Thanks to [Dimitar Kolevski](http://webhostinggeeks.com))
+* Added bulgarian localization (Thanks to [Dimitar Kolevski](https://webhostinggeeks.com))
 
 = 1.2.11 =
 * Changelogs show up on Multisite environments now (Thanks Richard!)
@@ -106,10 +106,10 @@ Please visit [the official website](http://www.schloebe.de/wordpress/changelogge
 
 = 1.2 =
 * Cycle through all available changelogs of a plugin - inline
-* Added belorussian localization (Thanks to [FatCow](http://www.fatcow.com))
+* Added belorussian localization (Thanks to [FatCow](https://www.fatcow.com))
 
 = 1.1.5 =
-* Added support for [WP-Manage-Plugins](http://webdevstudios.com/support/wordpress-plugins/wp-manage-plugins/ "WP-Manage-Plugins") plugin (thanks to djr for suggesting!)
+* Added support for [WP-Manage-Plugins](https://webdevstudios.com/support/wordpress-plugins/wp-manage-plugins/ "WP-Manage-Plugins") plugin (thanks to djr for suggesting!)
 * Improved german localization
 
 = 1.1.3 =
