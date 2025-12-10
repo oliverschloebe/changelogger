@@ -8,13 +8,13 @@
  
 /*
 Plugin Name: Changelogger
-Version: 1.3.3
+Version: 1.3.4
 Plugin URI: https://www.schloebe.de/wordpress/changelogger-plugin/
 Description: <strong>WordPress 2.7+ only.</strong> For many many people a changelog is a very important thing; it is all about justifying to your users why they should upgrade to the latest version of a plugin. Changelogger shows the latest changelog right on the plugin listing page, whenever there's a plugin ready to be updated.
 Author: Oliver Schl&ouml;be
 Author URI: https://www.schloebe.de/
 
-Copyright 2010-2019 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2010-2025 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("CLOSVERSION", "1.3.3");
+define("CLOSVERSION", "1.3.4");
 
 /**
  * Define the global var CLOSISWP27, returning bool if at least WP 2.7 is running
@@ -62,7 +62,7 @@ define('CLOSMINWP30', version_compare($GLOBALS['wp_version'], '2.9.999', '>'));
 * @author 		scripts@schloebe.de
 */
 class Changelogger {
-	
+	public $textdomain_loaded;
 	
 	/**
  	* The Changelogger class constructor
@@ -73,7 +73,7 @@ class Changelogger {
  	* @since 		1.0
  	* @author 		scripts@schloebe.de
  	*/		
-	function __construct() {
+	public function __construct() {
 		$this->textdomain_loaded = false;
 		
 		if ( !CLOSISWP27 ) {
@@ -99,7 +99,7 @@ class Changelogger {
  	* @since 		1.0
  	* @author 		scripts@schloebe.de
  	*/
-	function Changelogger() {
+	public function Changelogger() {
 		$this->__construct();
 	}
 	
@@ -110,7 +110,7 @@ class Changelogger {
  	* @since 		1.2.10
  	* @author 		scripts@schloebe.de
  	*/		
-	function enqueue_scripts_and_styles() {
+	public function enqueue_scripts_and_styles() {
 		wp_enqueue_script(
 			'clos-generalscripts',
 			$this->_plugins_url( 'js/admin_scripts.js', __FILE__ ),
@@ -134,7 +134,7 @@ class Changelogger {
  	* @uses 		$pagenow
  	* @author 		scripts@schloebe.de
  	*/
-	function init() {
+	public function init() {
 		global $pagenow;
 		if ( !function_exists("add_action") ) return;
 		
@@ -153,7 +153,7 @@ class Changelogger {
  	* @param 		array $plugin_data
  	* @author 		scripts@schloebe.de
  	*/
-	function display_info_row( $file, $plugin_data ) {
+	public function display_info_row( $file, $plugin_data ) {
 		global $wp_version;
 		
 		if( is_plugin_active( 'wp-manage-plugins/wp-manage-plugins.php' ) ) {
@@ -245,7 +245,7 @@ class Changelogger {
  	* @since 		1.2
  	* @author 		scripts@schloebe.de
  	*/
-	function clos_ajax_load_changelog() {
+	public function clos_ajax_load_changelog() {
 		$sectionid = absint( $_POST['sectionid'] );
 		$pluginslug = $_POST['pluginslug'];
 		
@@ -303,7 +303,7 @@ class Changelogger {
  	* @since 		1.2.6
  	* @author 		scripts@schloebe.de
  	*/
-	function flush_changelog_cache( $new_value ) {
+	public function flush_changelog_cache( $new_value ) {
 		$plugins_updated = false;
 		$old_value = (array)get_option('active_plugins');
 		
@@ -338,7 +338,7 @@ class Changelogger {
  	* @since 		1.0
  	* @author 		scripts@schloebe.de
  	*/
-	function load_textdomain() {
+	public function load_textdomain() {
 		if($this->textdomain_loaded) return;
 		load_plugin_textdomain('changelogger', false, dirname(plugin_basename(__FILE__)) . '/languages');
 		$this->textdomain_loaded = true;
@@ -352,7 +352,7 @@ class Changelogger {
  	* @since 		1.2
  	* @author 		scripts@schloebe.de
  	*/
-	function _esc_attr__( $str ) {
+	public function _esc_attr__( $str ) {
 		if( CLOSMINWP28 )
 			return esc_attr__( $str, 'changelogger' );
 		else
@@ -367,7 +367,7 @@ class Changelogger {
  	* @since 		1.2
  	* @author 		scripts@schloebe.de
  	*/
-	function _esc_js( $str ) {
+	public function _esc_js( $str ) {
 		if( CLOSMINWP28 )
 			return esc_js( $str );
 		else
@@ -384,7 +384,7 @@ class Changelogger {
  	* @since 		1.2
  	* @author 		scripts@schloebe.de
  	*/
-	function _plugins_url($path = '', $plugin = '') {
+	public function _plugins_url($path = '', $plugin = '') {
 		if( CLOSMINWP28 ) {
 			return plugins_url($path, $plugin);
 		} else {
@@ -422,7 +422,7 @@ class Changelogger {
 	 * @since 		1.2
 	 * @author 		scripts@schloebe.de
 	 */
-	function js_admin_header() {
+	public function js_admin_header() {
 		wp_print_scripts( array( 'sack' ));
 		if( version_compare($GLOBALS['wp_version'], '2.7.999', '>') ) {
 	?>
@@ -449,7 +449,7 @@ var clos_ajaxurl = "<?php echo $this->_esc_js( get_bloginfo( 'wpurl' ) . '/wp-ad
  	* @since 		1.0
  	* @author 		scripts@schloebe.de
  	*/
-	function require_wpversion_message() {
+	public function require_wpversion_message() {
 		echo "<div id='wpversionfailedmessage' class='error fade'><p>" . __('Changelogger requires at least WordPress 2.7!', 'changelogger') . "</p></div>";
 	}
 	

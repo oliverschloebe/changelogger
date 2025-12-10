@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: changelogger, changelog, version, control
 Requires at least: 2.7
-Tested up to: 6.8.99
+Tested up to: 6.9.99
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -52,6 +52,10 @@ Please visit [the official website](https://www.schloebe.de/wordpress/changelogg
 4. Installation finished.
 
 == Changelog ==
+
+= 1.3.4 =
+* Fixed PHP warning "Creation of dynamic property"
+* WordPress 6.9 compatibility
 
 = 1.3.3 =
 * WordPress 5.3 compatibility
