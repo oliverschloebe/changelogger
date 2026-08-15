@@ -3,6 +3,7 @@ function clos_ajax_load_changelog( pluginslug, sectionid ) {
 	clos_sack.execute = 1;
 	clos_sack.method = 'POST';
 	clos_sack.setVar( "action", "clos_ajax_load_changelog" );
+	clos_sack.setVar( "security", clos_nonce );
 	clos_sack.setVar( "pluginslug", pluginslug );
 	clos_sack.setVar( "sectionid", sectionid );
 	clos_sack.onError = function() { alert('AJAX error on reading changelog section') };
